@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{id}}</title>
-        {% else %}
-        <title>Welcome to the best movie site</title>
-        {% endif %}
-    </head>
-    <body>
-    <h1> Hello Movie {{ id }} </h1>
-
-    </body>
-</html>
+{% extends 'base.html' %}
+<!--Content block-->
+{% block content %}
+<div class="container">
+  <!--Poster background-->
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath">
+        <p><img src="{{movie.poster}}" alt="{{movie.title}}"></p>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+      <h3>{{movie.title}}</h3>
+      <p class="overview">{{movie.overview}}</p>
+      <p class="ratings"><b>{{movie.vote_average}}</b> - <i>{{movie.vote_count}} votes </i></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
